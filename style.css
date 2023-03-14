@@ -4,3 +4,9 @@ h1{
     position: relative;
     left: 100px;
 }
+
+.banner .welcome{
+    position: absolute;
+    left: 0px;
+    top: 30%
+  }
