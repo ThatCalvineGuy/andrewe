@@ -3,3 +3,10 @@
     position: relative;
     left: 100px;
 }
+.sticky {
+    z-index: -1; ;
+    position:-webkit-sticky;
+    position:sticky;
+    top: 50%;
+    left: 0%;
+}
