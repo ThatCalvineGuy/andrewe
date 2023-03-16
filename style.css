@@ -1,12 +1,13 @@
+html {
+    background-color: aquamarine;
+}
 .banner .welcome{
-    color: red;
-    position: relative;
-    left: 100px;
+    color: #54620c;
+    -webkit-text-stroke: 2px darkorange;
 }
 .sticky {
     z-index: -1; ;
     position:-webkit-sticky;
     position:sticky;
     top: 50%;
-    left: 0%;
 }
