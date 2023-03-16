@@ -37,6 +37,15 @@
   </section>
 </body>
 <footer>
+  <p><a href="javascript:;" onclick="swapImage()">without chemicals he points</a>
+    <script>
+    var images = [".images/whitelodge.webp", ".images/blacklodge.gif"];
+    var current = 0;
+    function swapImage() {
+      current = (current + 1) % images.length;
+      document.body.style.backgroundImage = "url('" + images[current] + "')";
+    }
+    </script></p>
   <p class="copyright">NOBODY</p>
 </footer>
 </html>
