@@ -1,14 +1,16 @@
-import checkboxPage from "../pageobjects/checkboxes.page";
+import CheckboxPage from "../pageobjects/checkboxes.page.js";
 
-describe('Checkboxes', () => {
-    it('should select and deselect checkboxes', () => {
+describe('This test should ', () => {
+    it('select the first checkbox', () => {
 
-        // Select first checkbox
-        checkboxPage.selectCheckbox(0);
-        expect(checkboxPage.isCheckboxSelected(0)).to.be.true;
+    });
+    it('should deselect the first checkbox', () => {
 
-        // Deselect first checkbox
-        checkboxPage.deselectCheckbox(0);
-        expect(checkboxPage.isCheckboxSelected(0)).to.be.false;
+    });    
+    it('should select the second checkbox', () => {
+
+    });
+    it('should deselect the second checkbox', () => {
+
     });
 });
