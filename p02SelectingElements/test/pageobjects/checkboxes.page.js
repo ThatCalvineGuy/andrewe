@@ -1,35 +1,12 @@
 import Page from './page.js';
-
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class CheckboxPage extends Page {
-    get checkboxElements() {
-        return $$('input[type="checkbox"]');
+    get cbox1 () {
+        return $('#checkboxes > input[type=checkbox]:nth-child(1)');
     }
-
-    getCheckbox(index) {
-        return this.checkboxElements[index];
+    get cbox2 () {
+        return $('#checkboxes > input[type=checkbox]:nth-child(3)');
     }
-
-    isCheckboxSelected(index) {
-        return this.getCheckbox(index).isSelected();
-    }
-
-    selectCheckbox(index) {
-        if (!this.isCheckboxSelected(index)) {
-            this.getCheckbox(index).click();
-        }
-    }
-
-    deselectCheckbox(index) {
-        if (this.isCheckboxSelected(index)) {
-            this.getCheckbox(index).click();
-        }
-    }
-}
-
-open () {
-    return super.open('checkboxes');
-}
+    open () {
+        return super.open('checkboxes');
+}}
 export default new CheckboxPage();
