@@ -1,15 +1,23 @@
 import Page from './page.js';
-class ElementPage extends Page {
-    get addElement () {
-        return $('#content > div > button')
+class ElementsPage extends Page {
+
+  get addButton() { 
+    return $('button[onclick="addElement()"]') 
+  }
+  get deleteButton() { 
+    return $('button[onclick="deleteElement()"]') 
+  }
+
+    async clickAddButton() {
+        await.addButton.click()
     }
-    get allElements () {
-        return $('#elements')
+
+    async clickDeleteButton() {
+        await.deleteButton.click()
     }
-    get deleteElement () {
-        return $('//*[@id="elements"]/button[1]')
-    }
+}
+  
     open () {
         return super.open('add_remove_elements');
 }}
-export default new ElementPage();
+export default new ElementsPage();
