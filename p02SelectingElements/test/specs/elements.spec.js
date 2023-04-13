@@ -7,14 +7,12 @@ describe('Elements page', () => {
 
         for (let i=(ElementsPage).buttonCount; i < 5; i++) {
             await (ElementsPage).addButton.click();
-            console.log(i);
             await browser.pause(1500);
         }
         await browser.pause(3000)
 
         for (let i=(ElementsPage).buttonCount; i > 3; i--) {
             await (ElementsPage).deleteButton.click();
-            console.log(i);
             await browser.pause(1500);
         }
         await browser.pause(3000)
