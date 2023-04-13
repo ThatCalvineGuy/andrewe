@@ -10,7 +10,7 @@ class ElementsPage extends Page {
   get buttonCount() {
     return $$('#added-manually').length;
   }
-    open () {
-        return super.open('add_remove_elements');
+  open () {
+    return super.open('add_remove_elements');
 }}
 export default new ElementsPage();
