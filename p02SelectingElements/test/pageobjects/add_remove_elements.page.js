@@ -6,17 +6,10 @@ class ElementsPage extends Page {
   }
   get deleteButton() { 
     return $('button[onclick="deleteElement()"]') 
+  }  
+  get buttonCount() {
+    return $$('#added-manually').length;
   }
-
-    async clickAddButton() {
-        await.addButton.click()
-    }
-
-    async clickDeleteButton() {
-        await.deleteButton.click()
-    }
-}
-  
     open () {
         return super.open('add_remove_elements');
 }}

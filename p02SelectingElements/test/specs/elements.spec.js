@@ -5,18 +5,17 @@ describe('Elements page', () => {
         await ElementsPage.open()
         await browser.pause(3000)
 
-        await for (; '#elements' < 5; ;) {
-            (ElementsPage).AddButton.click();
-            browser.pause(1000);
+        for (let i=(ElementsPage).buttonCount; i < 5; i++) {
+            await (ElementsPage).addButton.click();
+            browser.pause(1500);
         }
-        await expect('#elements').toHaveChildren(5)
         await browser.pause(3000)
 
-        await for (; '#elements' > 3; ;) {
-            (ElementsPage).clickDeleteButton.click();
-            browser.pause(1000);
+        for (let i=(ElementsPage).buttonCount; i > 3; i--) {
+            await (ElementsPage).deleteButton.click();
+            browser.pause(1500);
         }
-        await expect('#elements').toHaveChildren(3)
         await browser.pause(3000)
+        await expect (ElementsPage).buttoncount == 3
     });
 });
