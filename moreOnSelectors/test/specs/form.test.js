@@ -5,4 +5,9 @@ describe('My Form application', () => {
         await FormPage.open();
         await expect(FormPage.header).toHaveTextContaining('Form validation');
     })
+    it('should select an option from a dropdown', async () => {
+        await FormPage.title.click();
+        await FormPage.titleesq.click();
+        await expect(FormPage.title).toHaveTextContaining('Esq.')
+    })
 });

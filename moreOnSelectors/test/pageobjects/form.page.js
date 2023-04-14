@@ -1,20 +1,26 @@
-import page from './page.js'
+import Page from '../pageobjects/page.js'
 class FormPage extends Page {
      //define multiple selectors using getter methods
     get header() {
-        return $('#wb-cont'); //uses Element with certain text selector
+        return $('//*[@id="wb-cont"]'); //uses Element with certain text selector
     }
      // Email Selector
      get inputEmail() {
-          return $("#mail"); //uses CSS query selector
+          return $('//*[@id="email1"]'); //uses CSS query selector
      }
     get submit()
     {
-        return (${'input.btn:nth-child(10)'});
+        return $('//*[@id="validation-example"]/input[1]');
     }
     get errortext()
     {
-        return (${'#errors-validation-example > h2:nth-child(1)'});
+        return $('#errors-validation-example > h2:nth-child(1)');
+    }
+    get title() {
+        return $('#title1')
+    }
+    get titleesq() {
+        return $('#title1 > option:nth-child(3)')
     }
     /**
      * a method to encapsule automation code to interact with the page
