@@ -14,4 +14,12 @@ describe('Challenging Dom Page', () => {
         await challenging_domPage.ape.waitForExist();
         await expect (challenging_domPage.ape).toHaveText('Apeirian0');
     });
+    it('should change the name of the green button when blue button is clicked', async () => {
+        const firstGreen = await challenging_domPage.greenText();
+        console.log(firstGreen);
+        await (challenging_domPage).blueButton.click();
+        const secondGreen = await challenging_domPage.greenText();
+        console.log(secondGreen);
+        expect(firstGreen).not.toEqual(secondGreen);
+      });
 })
