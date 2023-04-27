@@ -1,5 +1,5 @@
 import Page from './page.js'
-class DropdownPage extends Page {
+class dropdownPage extends Page {
     get dDown() {
         return $('#dropdown')
     }
@@ -9,8 +9,16 @@ class DropdownPage extends Page {
     get option2() {
         return $('#dropdown > option:nth-child(3)')
     }
-    open(){
+    async dDownPicker(thatOne) {
+        await this.dDown.click()
+        if (thatOne == 1) {
+            await this.option1.click()
+        } else if (thatOne == 2) {
+            await this.option2.click()
+        }
+    }
+    open() {
         return super.open('dropdown');
     }
 }
-export default new DropdownPage();
+export default new dropdownPage();
