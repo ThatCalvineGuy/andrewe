@@ -1,21 +1,20 @@
 import Page from './page.js';
 class ElementsPage extends Page {
 
-  get addaButton() { 
+  get addButton() { 
     return $('button[onclick="addElement()"]') 
   }
-  get deleteaButton() { 
+  get deleteButton() { 
     return $('button[onclick="deleteElement()"]') 
   }  
   get buttonCount() {
     return $$('#added-manually').length;
   }
-
   async setButtons(number) {
     while (ElementsPage.buttonCount < number) {
-      await ElementsPage.addaButton.click();}
+      await ElementsPage.addButton.click();}
     while (ElementsPage.buttonCount > number) {
-      await ElementsPage.deleteaButton.click();}
+      await ElementsPage.deleteButton.click();}
   }
   open() {
     return super.open('add_remove_elements');
