@@ -10,14 +10,13 @@ class ElementsPage extends Page {
   get buttonCount() {
     return $$('#added-manually').length;
   }
-  async addButtons(number) {
-    for (let i=(ElementsPage).buttonCount; i < number; i++) {
-      await (ElementsPage).addaButton.click();
-  }}
-  async deleteButtons(number) {
-    for (let i=(ElementsPage).buttonCount; i > number; i--) {
-      await (ElementsPage).deleteaButton.click();
-  }}
+
+  async setButtons(number) {
+    while (ElementsPage.buttonCount < number) {
+      await ElementsPage.addaButton.click();}
+    while (ElementsPage.buttonCount > number) {
+      await ElementsPage.deleteaButton.click();}
+  }
   open() {
     return super.open('add_remove_elements');
 }}
