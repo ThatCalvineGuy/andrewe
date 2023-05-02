@@ -5,6 +5,7 @@ wiki/node_modules
 moreOnSelectors/node_modules
 multipleElements/node_modules
 recapWdio/node_modules
+savingScreenshots/node_modules
 .DS_Store
 organizingTests\node_modules
 usingSelectors\node_modules
@@ -13,3 +14,4 @@ wiki\node_modules
 moreOnSelectors\node_modules
 multipleElements\node_modules
 recapWdio\node_modules
+savingScreenshots\node_modules
