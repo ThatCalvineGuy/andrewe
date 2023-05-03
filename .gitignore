@@ -6,6 +6,7 @@ moreOnSelectors/node_modules
 multipleElements/node_modules
 recapWdio/node_modules
 savingScreenshots/node_modules
+savingScreenshots/screenshots
 .DS_Store
 organizingTests\node_modules
 usingSelectors\node_modules
@@ -15,3 +16,4 @@ moreOnSelectors\node_modules
 multipleElements\node_modules
 recapWdio\node_modules
 savingScreenshots\node_modules
+savingScreenshots\screenshots
