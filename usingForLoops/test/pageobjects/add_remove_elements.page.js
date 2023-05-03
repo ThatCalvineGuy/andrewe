@@ -16,6 +16,14 @@ class ElementsPage extends Page {
     while (ElementsPage.buttonCount > number) {
       await ElementsPage.deleteButton.click();}
   }
+  // async setButtons(number) {
+  //   for (let i = ElementsPage.buttonCount; i < number; i++) {
+  //       await ElementsPage.addButton.click();
+  //   }
+  //   for (let i = ElementsPage.buttonCount; i > number; i--) {
+  //       await ElementsPage.deleteButton.click();
+  //   }
+  // }
   open() {
     return super.open('add_remove_elements');
 }}
