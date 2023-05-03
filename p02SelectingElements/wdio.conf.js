@@ -53,17 +53,17 @@ export const config = {
     //
     capabilities: [
         {
-            maxInstances: 2,
+            maxInstances: 5,
             browserName: 'chrome',
             acceptInsecureCerts: true
         },
         {
-            maxInstances: 2,
+            maxInstances: 5,
             browserName: 'MicrosoftEdge',
             acceptInsecureCerts: true
         },
         {
-            maxInstances: 2,
+            maxInstances: 5,
             browserName: 'firefox',
             acceptInsecureCerts: true
         }
