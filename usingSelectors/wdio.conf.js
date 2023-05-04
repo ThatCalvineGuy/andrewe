@@ -59,11 +59,6 @@ export const config = {
         },
         {
             maxInstances: 2,
-            browserName: 'MicrosoftEdge',
-            acceptInsecureCerts: true
-        },
-        {
-            maxInstances: 2,
             browserName: 'firefox',
             acceptInsecureCerts: true
         }
