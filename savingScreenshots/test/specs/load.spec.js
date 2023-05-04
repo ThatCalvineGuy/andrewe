@@ -10,6 +10,7 @@ describe('My Dynamic Loading Page', () => {
         await dynamic_loadingPage.startButton.click();
         await dynamic_loadingPage.loadingBar.waitForDisplayed();
         await expect(dynamic_loadingPage.loadingBar).toBeDisplayed();
+        await browser.saveScreenshot('../savingScreenshots/screenshots/loadingScreen.png')
     })
     it('should show Hello World text after loading bar', async () => {
         await dynamic_loadingPage.finishText.waitForDisplayed();
