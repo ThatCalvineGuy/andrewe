@@ -14,6 +14,9 @@ class ElementsPage extends Page {
     if (number < 0) {
       throw new Error('Number must be greater than or equal to zero');
     }
+    if (!Number.isInteger(number)) {
+      throw new Error('Number must be an integer');
+    }
     while (ElementsPage.buttonCount < number) {
       await ElementsPage.addButton.click();
     }
