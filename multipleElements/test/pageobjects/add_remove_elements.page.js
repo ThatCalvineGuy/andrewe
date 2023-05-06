@@ -11,10 +11,15 @@ class ElementsPage extends Page {
     return $$('#added-manually').length;
   }
   async setButtons(number) {
+    if (number < 0) {
+      throw new Error('Number must be greater than or equal to zero');
+    }
     while (ElementsPage.buttonCount < number) {
-      await ElementsPage.addButton.click();}
+      await ElementsPage.addButton.click();
+    }
     while (ElementsPage.buttonCount > number) {
-      await ElementsPage.deleteButton.click();}
+      await ElementsPage.deleteButton.click();
+    }
   }
   open() {
     return super.open('add_remove_elements');
