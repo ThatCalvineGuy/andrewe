@@ -8,6 +8,7 @@ recapWdio/node_modules
 savingScreenshots/node_modules
 savingScreenshots/screenshots
 usingForLoops/node_modules
+allTests/node_modules
 .DS_Store
 organizingTests\node_modules
 usingSelectors\node_modules
@@ -19,3 +20,4 @@ recapWdio\node_modules
 savingScreenshots\node_modules
 savingScreenshots\screenshots
 usingForLoops\node_modules
+allTests\node_modules
