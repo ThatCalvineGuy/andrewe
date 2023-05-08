@@ -29,32 +29,24 @@ class JavaScriptAlertsPage extends Page {
     async dismissAlert() {
         await browser.dismissAlert();
     }
-    async sendTextToAlert(text) {
-        await browser.sendAlertText(text);
-    }
     open () {
         return super.open('javascript_alerts');
     }
     async checkResult(param) {
         let specificAlertText;
-
         if (param === 'alert') {
             await this.clickAlertButton();
             specificAlertText = 'You successfully clicked an alert';
-        } 
-        else if (param === 'confirm') {
+        } else if (param === 'confirm') {
             await this.clickConfirmButton();
             specificAlertText = 'You clicked: Ok';
-        } 
-        else {
+        } else {
             await this.clickPromptButton();
-            await this.sendTextToAlert(param);
-            await this.acceptAlert();
+            await browser.sendAlertText(param);
             specificAlertText = `You entered: ${param}`;
         }
-
-        const resultText = await (await this.result).getText();
-        return resultText.includes(specificAlertText);
+        await this.acceptAlert();
+        return (await (await this.result).getText()).includes(specificAlertText);
     }
 }
 export default new JavaScriptAlertsPage();
