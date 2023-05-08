@@ -46,7 +46,6 @@ class JavaScriptAlertsPage extends Page {
         } else {
             await this.clickPromptButton();
             await this.sendTextToAlert(param);
-            await this.acceptAlert();
             specificAlertText = `You entered: ${param}`;
         }
         await this.acceptAlert();
