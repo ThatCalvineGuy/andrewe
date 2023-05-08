@@ -1,7 +1,7 @@
 version: "3"
 services:
   chrome:
-    image: seleniarm/node-chromium:4.3.0-20220728
+    image: seleniarm/node-chromium:latest
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -13,7 +13,7 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
 
   firefox:
-    image: seleniarm/node-firefox:4.3.0-20220728
+    image: seleniarm/node-firefox:latest
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -25,7 +25,7 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
 
   selenium-hub:
-    image: seleniarm/hub:4.3.0-20220728
+    image: seleniarm/hub:latest
     container_name: selenium-hub
     ports:
       - "4442:4442"
