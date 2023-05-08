@@ -29,6 +29,9 @@ class JavaScriptAlertsPage extends Page {
     async dismissAlert() {
         await browser.dismissAlert();
     }
+    async sendTextToAlert(text) {
+        await browser.sendAlertText(text);
+    }
     open () {
         return super.open('javascript_alerts');
     }
@@ -42,7 +45,8 @@ class JavaScriptAlertsPage extends Page {
             specificAlertText = 'You clicked: Ok';
         } else {
             await this.clickPromptButton();
-            await browser.sendAlertText(param);
+            await this.sendTextToAlert(param);
+            await this.acceptAlert();
             specificAlertText = `You entered: ${param}`;
         }
         await this.acceptAlert();
