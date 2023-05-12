@@ -1,30 +1,42 @@
 import Page from './page.js';
-class ElementsPage extends Page {
 
-  get addButton() { 
-    return $('button[onclick="addElement()"]') 
+const getFunctions = {
+  ...generateGetFunction('button[onclick="addElement()"]', 'addButton'),
+  ...generateGetFunction('button[onclick="deleteElement()"]', 'deleteButton'),
+  ...generateGetFunction('#added-manually', 'buttonCount', true)
+};
+
+class ElementsPage extends Page {
+  get addButton() {
+    return getFunctions.addButton();
   }
-  get deleteButton() { 
-    return $('button[onclick="deleteElement()"]') 
-  }  
+
+  get deleteButton() {
+    return getFunctions.deleteButton();
+  }
+
   get buttonCount() {
-    return $$('#added-manually').length;
+    return getFunctions.buttonCount().length;
   }
+
   async setButtons(number) {
-    if (!Number.isInteger(number)) {
-      throw new Error('Number must be an integer');
-    }
-    if (number < 0) {
-      throw new Error('Number must be greater than or equal to zero');
-    }
-    while (ElementsPage.buttonCount < number) {
-      await ElementsPage.addButton.click();
-    }
-    while (ElementsPage.buttonCount > number) {
-      await ElementsPage.deleteButton.click();
+    while (this.buttonCount !== number) {
+      switch (true) {
+        case !Number.isInteger(number):
+          throw new Error('Number must be an integer');
+        case number < 0:
+          throw new Error('Number must be greater than or equal to zero');
+        case this.buttonCount < number:
+          await this.addButton.click();
+        case this.buttonCount > number:
+          await this.deleteButton.click();
+      }
     }
   }
+
   open() {
     return super.open('add_remove_elements');
-}}
+  }
+}
+
 export default new ElementsPage();

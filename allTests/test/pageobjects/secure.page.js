@@ -1,21 +1,22 @@
 import Page from './page.js';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+const getFunctions = {
+  ...generateGetFunction('#flash', 'flashAlert'),
+  ...generateGetFunction('.button.secondary.radius', 'btnLogout')
+};
+
 class SecurePage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    get flashAlert () {
-        return $('#flash');
-    }
-    get btnLogout() {
-        return $('.button.secondary.radius');
-    }
-    async logout() {
-        await this.btnLogout.click();
-    }
+
+  get flashAlert() {
+    return getFunctions.flashAlert();
+  }
+  get btnLogout() {
+    return getFunctions.btnLogout();
+  }
+
+  async logout() {
+    await this.btnLogout.click();
+  }
 }
 
 export default new SecurePage();
