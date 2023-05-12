@@ -1,4 +1,4 @@
-import Page from './page.js';
+import Page, { generateGetFunction } from './page.js';
 
 const getFunctions = {
   ...generateGetFunction('#result', 'result'),
