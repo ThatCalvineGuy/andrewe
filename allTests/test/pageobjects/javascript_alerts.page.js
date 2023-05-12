@@ -32,18 +32,23 @@ class JavaScriptAlertsPage extends Page {
     async sendTextToAlert(text) {
         await browser.sendAlertText(text);
     }
-    open () {
+
+  open() {
         return super.open('javascript_alerts');
     }
+
     async checkResult(param) {
         let specificAlertText;
-        if (param === 'alert') {
+    switch (param) {
+      case 'alert':
             await this.clickAlertButton();
             specificAlertText = 'You successfully clicked an alert';
-        } else if (param === 'confirm') {
+        break;
+      case 'confirm':
             await this.clickConfirmButton();
             specificAlertText = 'You clicked: Ok';
-        } else {
+        break;
+      default:
             await this.clickPromptButton();
             await this.sendTextToAlert(param);
             specificAlertText = `You entered: ${param}`;
