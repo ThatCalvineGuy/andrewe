@@ -1,32 +1,42 @@
-import Page, { generateGetFunction } from './page.js';
 
-const getFunctions = {
-  ...generateGetFunction('#username', 'inputUsername'),
-  ...generateGetFunction('#password', 'inputPassword'),
-  ...generateGetFunction('button[type="submit"]', 'btnSubmit')
-};
 
+import Page from './page.js';
+
+/**
+ * sub page containing specific selectors and methods for a specific page
+ */
 class LoginPage extends Page {
+    /**
+     * define selectors using getter methods
+     */
+    get inputUsername () {
+        return $('#username');
+    }
 
-  get inputUsername() {
-    return getFunctions.inputUsername();
-  }
-  get inputPassword() {
-    return getFunctions.inputPassword();
-  }
-  get btnSubmit() {
-    return getFunctions.btnSubmit();
-  }
+    get inputPassword () {
+        return $('#password');
+    }
 
-  async login(username, password) {
-    await this.inputUsername.setValue(username);
-    await this.inputPassword.setValue(password);
-    await this.btnSubmit.click();
-  }
+    get btnSubmit () {
+        return $('button[type="submit"]');
+    }
 
-  open() {
-    return super.open('login');
-  }
+    /**
+     * a method to encapsule automation code to interact with the page
+     * e.g. to login using username and password
+     */
+    async login (username, password) {
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(password);
+        await this.btnSubmit.click();
+    }
+
+    /**
+     * overwrite specific options to adapt it to page object
+     */
+    open () {
+        return super.open('login');
+    }
 }
 
 export default new LoginPage();

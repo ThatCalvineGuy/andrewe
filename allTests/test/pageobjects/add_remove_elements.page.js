@@ -1,22 +1,16 @@
-import Page, { generateGetFunction } from './page.js';
-
-const getFunctions = {
-  ...generateGetFunction('button[onclick="addElement()"]', 'addButton'),
-  ...generateGetFunction('button[onclick="deleteElement()"]', 'deleteButton'),
-  ...generateGetFunction('#added-manually', 'buttonCount', true)
-};
-
+import Page from './page.js';
 class ElementsPage extends Page {
-  get addButton() {
-    return getFunctions.addButton();
+
+  get addButton() { 
+    return $('button[onclick="addElement()"]') 
   }
 
-  get deleteButton() {
-    return getFunctions.deleteButton();
-  }
+  get deleteButton() { 
+    return $('button[onclick="deleteElement()"]') 
+  }  
 
   get buttonCount() {
-    return getFunctions.buttonCount().length;
+    return $$('#added-manually').length;
   }
 
   async setButtons(number) {
@@ -30,9 +24,9 @@ class ElementsPage extends Page {
           await this.addButton.click();
         case this.buttonCount > number:
           await this.deleteButton.click();
-      }
     }
   }
+}
 
   open() {
     return super.open('add_remove_elements');

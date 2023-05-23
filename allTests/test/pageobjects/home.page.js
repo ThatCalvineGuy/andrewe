@@ -1,17 +1,12 @@
-import Page, { generateGetFunction } from './page.js';
-
-const getFunctions = {
-  ...generateGetFunction('ul li', 'listExamples', true)
-};
+import Page from "./page.js";
 
 class homePage extends Page {
-  get listExamples() {
-    return getFunctions.listExamples();
-  }
+    get listExamples() {
+        return $$('ul li');
+    }
 
-  open() {
-    return super.open('');
-  }
+ open() {
+        return super.open('');
+    }
 }
-
 export default new homePage();
