@@ -16,10 +16,8 @@ class ElementsPage extends Page {
   async setButtons(number) {
     while (this.buttonCount !== number) {
       switch (true) {
-        case !Number.isInteger(number):
-          throw new Error('Number must be an integer');
-        case number < 0:
-          throw new Error('Number must be greater than or equal to zero');
+        case !Number.isInteger(number) || number < 0:
+          throw new Error('Number must be an integer and greater than or equal to zero');      
         case this.buttonCount < number:
           await this.addButton.click();
         case this.buttonCount > number:
