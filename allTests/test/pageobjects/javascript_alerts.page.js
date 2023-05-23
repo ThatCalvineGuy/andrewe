@@ -1,6 +1,4 @@
-import Page, { generateGetFunction } from './page.js';
-
-
+import Page from "./page.js";
 
 class JavaScriptAlertsPage extends Page {
 get result() { 
