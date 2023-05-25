@@ -6,21 +6,6 @@ class CheckboxPage extends Page {
     get cbox2 () {
         return $('#checkboxes > input[type=checkbox]:nth-child(3)');
     }
-    async checkerizer(checkbox, checkme) {
-        if (checkme) {
-            if (!await checkbox.isSelected()) {
-                await checkbox.click();
-            }
-            await expect(checkbox).toBeSelected();
-        } else {
-            if (await checkbox.isSelected()) {
-                await checkbox.click();
-            }
-            await expect(checkbox).not.toBeSelected();
-        }
-    }
-
-
     open () {
         return super.open('checkboxes');
 }}
