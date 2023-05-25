@@ -2,14 +2,20 @@ import CheckboxPage from "../pageobjects/checkboxes.page.js";
 
 async function checkerizer(checkbox, checkme) {
     if (checkme) {
+
         if (!await checkbox.isSelected()) {
             await checkbox.click();
         }
+
         await expect(checkbox).toBeSelected();
-    } else {
+    } 
+
+    else {
+
         if (await checkbox.isSelected()) {
             await checkbox.click();
         }
+        
         await expect(checkbox).not.toBeSelected();
     }
 }
