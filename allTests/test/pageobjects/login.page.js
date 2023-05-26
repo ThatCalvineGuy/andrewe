@@ -11,12 +11,12 @@ class LoginPage extends Page {
      */
 
         createGetObj(name, selector) {
-        return {
-          get [name]() {
-            return selector;
-          }
-        };
-      }
+            return {
+                get [name]() {
+                    return selector;
+                }
+            };
+        }
 
     get inputUsername () {
         return $('#username');
