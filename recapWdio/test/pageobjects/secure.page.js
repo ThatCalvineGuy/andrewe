@@ -9,9 +9,15 @@ class SecurePage extends Page {
     /**
      * define selectors using getter methods
      */
-    get flashAlert () {
-        return $('#flash');
+    constructor() {
+        super();
+        this.createGetter('flashAlert', '#flash');
+        this.createGetter('btnLogout', '.button.secondary.radius');
+      }
+    async logout() {
+        await this.btnLogout.click();
     }
 }
+
 
 export default new SecurePage();

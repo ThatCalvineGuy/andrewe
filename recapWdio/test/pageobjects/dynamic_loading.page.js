@@ -2,15 +2,12 @@ import Page from './page.js';
 
 class dynamic_loadingPage extends Page {
 
-get startButton() {
-    return $('#start > button');
-}
-get finishText() {
-    return $('#finish > h4');
-}
-get loadingBar() {
-    return $('#loading > img');
-}
+constructor() {
+    super();
+    this.createGetter('startButton', '#start > button');
+    this.createGetter('finishText', '#finish > h4');
+    this.createGetter('loadingBar', '#loading > img');
+  }
 open () {
     return super.open('dynamic_loading/1');
 }}

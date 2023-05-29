@@ -10,4 +10,11 @@ export default class Page {
     open (path) {
         return browser.url(`https://the-internet.herokuapp.com/${path}`)
     }
+    createGetter(name, selector) {
+        Object.defineProperty(this, name, {
+          get: function() {
+            return $(selector);
+          }
+        });
+      }
 }

@@ -9,17 +9,12 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get inputUsername () {
-        return $('#username');
-    }
-
-    get inputPassword () {
-        return $('#password');
-    }
-
-    get btnSubmit () {
-        return $('button[type="submit"]');
-    }
+    constructor() {
+        super();
+        this.createGetter('inputUsername', '#username');
+        this.createGetter('inputPassword', '#password');
+        this.createGetter('btnSubmit', 'button[type="submit"]');
+      }
 
     /**
      * a method to encapsule automation code to interact with the page

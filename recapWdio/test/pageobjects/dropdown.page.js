@@ -1,14 +1,11 @@
 import Page from './page.js'
 class dropdownPage extends Page {
-    get dDown() {
-        return $('#dropdown')
-    }
-    get option1() {
-        return $('#dropdown > option:nth-child(2)')
-    }
-    get option2() {
-        return $('#dropdown > option:nth-child(3)')
-    }
+    constructor() {
+        super();
+        this.createGetter('dDown', '#dropdown');
+        this.createGetter('option1', '#dropdown > option:nth-child(2)');
+        this.createGetter('option2', '#dropdown > option:nth-child(3)');
+      }
     async dDownPicker(thatOne) {
         await this.dDown.click()
         if (thatOne == 1) {
