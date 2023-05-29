@@ -10,14 +10,6 @@ class LoginPage extends Page {
      * define selectors using getter methods
      */
 
-        createGetObj(name, selector) {
-            return {
-                get [name]() {
-                    return selector;
-                }
-            };
-        }
-
     get inputUsername () {
         return $('#username');
     }
