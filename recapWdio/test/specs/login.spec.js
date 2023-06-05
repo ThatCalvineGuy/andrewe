@@ -10,6 +10,15 @@ describe('My Login application', () => {
         await expect(SecurePage.flashAlert).toHaveTextContaining(
             'Your username is invalid!');
     });
+    it('should fail to login with invalid password', async () => {
+        await LoginPage.open();
+
+        await LoginPage.login('tomsmith', 'wrong');
+
+        await expect(SecurePage.flashAlert).toBeExisting();
+        await expect(SecurePage.flashAlert).toHaveTextContaining(
+            'Your password is invalid!');
+    });
     it('should login with valid credentials', async () => {
         await LoginPage.open();
 
@@ -27,12 +36,5 @@ describe('My Login application', () => {
         await SecurePage.logout();
         await expect(browser).toHaveUrl('https://the-internet.herokuapp.com/login');
     });
-    it('should fail to login with invalid credentials', async () => {
-        await LoginPage.open();
 
-        await LoginPage.login('tomsmith', 'wrong');
-        await expect(SecurePage.flashAlert).toBeExisting();
-        await expect(SecurePage.flashAlert).toHaveTextContaining(
-            'Your password is invalid!');
-    });
 });
