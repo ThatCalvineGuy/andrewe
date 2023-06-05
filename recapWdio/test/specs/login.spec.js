@@ -1,6 +1,15 @@
 import LoginPage from '../pageobjects/login.page.js';
 import SecurePage from '../pageobjects/secure.page.js';
 describe('My Login application', () => {
+    it('should fail to login with invalid username', async () => {
+        await LoginPage.open();
+
+        await LoginPage.login('tomjones', 'SuperSecretPassword!');
+
+        await expect(SecurePage.flashAlert).toBeExisting();
+        await expect(SecurePage.flashAlert).toHaveTextContaining(
+            'Your username is invalid!');
+    });
     it('should login with valid credentials', async () => {
         await LoginPage.open();
 
