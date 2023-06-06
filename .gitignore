@@ -12,4 +12,5 @@ allTests/node_modules
 usingConditionals/node_modules
 while-loop-excercise/node_modules
 usingAWhileLoop/node_modules
+automationTestStore/node_modules
 .DS_Store
