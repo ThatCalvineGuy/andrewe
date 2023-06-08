@@ -7,20 +7,30 @@ import Page from './page.js';
  */
 class signUpPage extends Page {
 
-    get submit() { return $('#validation-example > input.btn.btn-primary'); }
-    get errortext() { return $('#errors-validation-example > h2'); }
-    get title() { return $('#title1') }
-    get titleesq() { return $('#title1 > option:nth-child(3)') }
-    get titlemr() { return $('#title1 > option:nth-child(4)') }
+    get nameFirst() { return $('#AccountFrm_firstname'); }
+    get nameLast() { return $('#AccountFrm_lastname'); }
+    get email() { return $('#AccountFrm_email'); }
+    get address() { return $('#AccountFrm_address_1'); }
+    get country() { return $('#AccountFrm_country_id'); }
+    get city() { return $('#AccountFrm_city'); }
+    get region() { return $('#AccountFrm_zone_id'); }
+    get zipCode() { return $('#AccountFrm_postcode'); }
+    get username() { return $('#AccountFrm_loginname'); }
+    get password() { return $('#AccountFrm_password')}
+    get passwordConfirm() {return $('#AccountFrm_confirm')}
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+    async accountCreator (accountArray) {
+        await this.nameFirst.setValue(accountArray[0]);
+        await this.nameLast.setValue(accountArray[1]);
+        await this.email.setValue(accountArray[2]);
+        await this.address.setValue(accountArray[3]);
+        await this.country.setValue(accountArray[4]);
+        await this.city.setValue(accountArray[5]);
+        await this.region.setValue(accountArray[6]);
+        await this.zipCode.setValue(accountArray[7]);
+        await this.username.setValue(accountArray[8]);
+        await this.password.setValue(accountArray[9]);
+        await this.passwordConfirm.setValue(accountArray[10]);
     }
 
     /**
