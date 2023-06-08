@@ -1,10 +1,5 @@
-
-
 import Page from './page.js';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class signUpPage extends Page {
 
     get nameFirst() { return $('#AccountFrm_firstname'); }
@@ -33,9 +28,6 @@ class signUpPage extends Page {
         await this.passwordConfirm.setValue(accountArray[10]);
     }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
     open () {
         return super.open('index.php?rt=account/create');
     }
