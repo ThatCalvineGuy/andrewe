@@ -19,11 +19,11 @@ class signUpPage extends Page {
         await this.nameLast.setValue(accountArray[1]);
         await this.email.setValue(accountArray[2]);
         await this.address.setValue(accountArray[3]);
-        await this.country.selectByVisibleText(accountArray[4]);
+        await this.country.setValue(accountArray[4]);
         await this.city.setValue(accountArray[5]);
         await this.region.selectByVisibleText(accountArray[6]);
         await this.zipCode.setValue(accountArray[7]);
-        await this.username.setValue(accountArray[8]);
+        await this.region.selectByVisibleText(accountArray[8]);
         await this.password.setValue(accountArray[9]);
         await this.passwordConfirm.setValue(accountArray[10]);
     }
